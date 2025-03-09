@@ -1,71 +1,49 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import Todos from "./Components/Todos";
 import AddTodos from "./Components/AddTodos";
 
-
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: "Complete React Project",
-      desc: "Finish implementing the Navbar and search functionality."
-    },
-    {
-      id: 2,
-      title: "Update Resume",
-      desc: "Add recent projects and update skills section."
-    },
-    {
-      id: 3,
-      title: "Buy Groceries",
-      desc: "Get milk, eggs, and vegetables from the store."
-    },
-    {
-      id: 4,
-      title: "Practice DSA",
-      desc: "Solve at least 5 problems on Leetcode."
-    },
-    {
-      id: 5,
-      title: "Read a Book",
-      desc: "Read at least 20 pages of 'Clean Code'."
-    }
-  ]);
+  let data = JSON.parse(localStorage.getItem("todos"));
 
-  function handleDelete(id){
-    const newTodos = todos.filter((todo)=>{
-      return todo.id !==id
-    })
+  const [todos, setTodos] = useState(data);
 
-    setTodos(newTodos)
+  function handleDelete(id) {
+    const newTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+
+    setTodos(newTodos);
   }
 
   const addingTodo = (title, desc) => {
     let len = todos.length;
-    let id = len ===0 ? 1 : (len+1)
-    const newTodo={
-      id : id,
-      title : title,
-      desc : desc
-    }
+    let id = len === 0 ? 1 : len + 1;
+    const newTodo = {
+      id: id,
+      title: title,
+      desc: desc,
+    };
 
-    setTodos([...todos, newTodo])
-    console.log(newTodo)
-  }
+    setTodos([...todos, newTodo]);
+    console.log(newTodo);
+  };
 
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div>
-      <Navbar/>
-      <AddTodos  addTodo={addingTodo}/>
-      {
-        todos.length !== 0 ?
-        <Todos todos={todos} bool={true} funDelete={handleDelete} /> :
+      <Navbar />
+      <AddTodos addTodo={addingTodo} />
+      {todos.length !== 0 ? (
+        <Todos todos={todos} bool={true} funDelete={handleDelete} />
+      ) : (
         <Todos todos={todos} bool={false} funDelete={handleDelete} />
-      }
-      <Footer/>
+      )}
+      <Footer />
     </div>
   );
 }
