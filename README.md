@@ -1,63 +1,74 @@
-# Todo App
+# TODO List Application
 
-## Overview
-This is a simple Todo List application built using React. The app allows users to add, view, and delete todos. It includes a Navbar, Footer, and components to manage todos efficiently.
+## Description
+This is a simple TODO List application built with React that allows users to add, view, and delete tasks. The application stores the TODOs in local storage, ensuring that data persists even after refreshing the page.
 
 ## Features
-- Add new todos with a title and description.
-- View a list of all added todos.
-- Delete a todo when it's completed.
-- A responsive Navbar with a search icon.
-
-## Technologies Used
-- React.js
-- Bootstrap (for styling)
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/todo-app.git
-   cd todo-app
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm start
-   ```
+- Add new TODO tasks with a title and description
+- View the list of existing TODOs
+- Delete individual TODOs
+- Responsive UI using Bootstrap
+- Data persistence using local storage
 
 ## Project Structure
 ```
-/todo-app
-├── src
-│   ├── Components
-│   │   ├── Navbar.js
-│   │   ├── Footer.js
-│   │   ├── Todos.js
-│   │   ├── TodoItem.js
-│   │   ├── AddTodos.js
-│   ├── App.js
-│   ├── index.js
-├── package.json
-├── README.md
+/src
+├── Components
+│   ├── AddTodos.js
+│   ├── Footer.js
+│   ├── Navbar.js
+│   ├── Todos.js
+│   ├── TodoItem.js
+├── App.js
+├── index.js
+└── styles.css
 ```
 
-## Components
-- **Navbar.js**: Displays a navigation bar with a title and search functionality.
-- **Footer.js**: Displays a footer section.
-- **Todos.js**: Renders the list of todos.
-- **TodoItem.js**: Displays a single todo item with a delete button.
-- **AddTodos.js**: Provides a form to add new todos.
-- **App.js**: Main component managing state and rendering all components.
+## Installation & Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Rohitsah6372/repo.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd repo
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the application:
+   ```bash
+   npm start
+   ```
+5. Open the app in the browser at `http://localhost:3000`
 
 ## Usage
-1. Click on **"ADD YOUR TODOS HERE"** button to reveal the form.
-2. Enter the **Title** and **Description** of the todo.
-3. Click on **"ADD YOUR TODOS HERE"** button to save the todo.
-4. Click the **"Delete"** button next to a todo item to remove it.
+- Click on **ADD YOUR TODOS HERE** to add a new task.
+- Enter a title and description, then click the **ADD YOUR TODOS HERE** button.
+- The task will be added to the list.
+- Click the **Delete** button to remove a task.
+
+## Technologies Used
+- React
+- Bootstrap
+- JavaScript (ES6+)
+- Local Storage
+
+## Contributing
+If you would like to contribute to this project:
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-branch
+   ```
+3. Make your changes and commit:
+   ```bash
+   git commit -m "Your message here"
+   ```
+4. Push to your fork and submit a pull request.
 
 ## License
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source and available under the MIT License.
 
